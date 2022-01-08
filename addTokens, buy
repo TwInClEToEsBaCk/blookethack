@@ -106,8 +106,7 @@ def sell(sellUsername, box):
         buy(buyUsername=sellUsername, box=box)
     
 
-username= '28pattiw'
-altusername = 'blookettest99'
+
 
 
 
