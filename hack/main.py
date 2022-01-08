@@ -10,7 +10,7 @@ repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blooketha
 module = __import__(__name__)
 file = open(module.__file__, "r")
 if file.read() != repo.text:
-    print("Update available. Please open the 'UpdateBlooketHack' file.")  
+    print("Update available. Please open the 'update.py' file.")  
     quit()
 
 
