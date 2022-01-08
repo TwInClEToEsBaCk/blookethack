@@ -2,6 +2,22 @@ import requests
 import time
 import json
 
+
+
+repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/addTokens%2C%20buy")
+
+
+module = __import__(__name__)
+file = open(module.__file__, "r")
+print(file.read())
+if file.read() != repo.text:
+    print("Update available. Please open the 'UpdateBlooketHack' file.")  
+    quit()
+
+
+
+
+
 #fake useragent
 headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
     'Accept-Encoding': "gzip, deflate",
@@ -123,5 +139,8 @@ newblooks = []
 #and here
 addTokens()
 buy(box=box)
+
+
+
 
 
