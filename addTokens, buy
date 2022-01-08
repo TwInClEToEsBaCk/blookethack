@@ -29,19 +29,24 @@ def login(email, password):
 
 #verify the connection is secure
 def verify():
+    global username
     ver = session.get("https://api.blooket.com/api/users/verify-session")
     print(ver)
+    
     try:
         ver.raise_for_status()
+        username = json.loads(ver.text)["name"]
+        print(username)
+
     except:
         print("The session could not be verified. Please try again.")
         quit()
     
 
 #add tokens
-def addTokens(addUsername):
-
-    addData = {'name': addUsername, 'addedTokens': 500, "addedXp": 500}
+def addTokens():
+    global username
+    addData = {'name': username, 'addedTokens': 500, "addedXp": 500}
 
     addData = json.dumps(addData)
 
@@ -54,10 +59,10 @@ def addTokens(addUsername):
 
 
 
-
 #buy blooks
-def buy(buyUsername, box):
-    buyData = {"name":buyUsername,"box":box}
+def buy(box):
+    global username
+    buyData = {"name":username,"box":box}
     buyData = json.dumps(buyData)
 
     response = session.get('https://api.blooket.com/api/users/tokens')
@@ -74,11 +79,11 @@ def buy(buyUsername, box):
     
         print(response.text)
     print(newblooks)
-    sell(sellUsername=buyUsername, box=box)
+    sell(box=box)
 
 #sell duplicate blooks
-def sell(sellUsername, box):
-
+def sell(box):
+    global username
     print('Selling Dupe Blooks...')
     blooks = session.get('https://api.blooket.com/api/users/blooks')
     blooks = blooks.text
@@ -88,7 +93,7 @@ def sell(sellUsername, box):
     for key, value in blooks.items():
         if int(value) > 1:
             time.sleep(.5)
-            sellData = {'name': sellUsername, 'blook': key, 'numSold': int(value) - 1}
+            sellData = {'name': username, 'blook': key, 'numSold': int(value) - 1}
             sellData = json.dumps(sellData)
             sold = session.put('https://api.blooket.com/api/users/sellblook', data=sellData)
             print(sold.text)
@@ -97,33 +102,26 @@ def sell(sellUsername, box):
 
 
     response = session.get('https://api.blooket.com/api/users/tokens')
-    text = {'tokens' : int(response.text[1:-2])} 
+    text = {'tokens': int(response.text[1:-2])} 
 
 
     if text['tokens'] < 25:
         print('Worked')
     else:
-        buy(buyUsername=sellUsername, box=box)
+        buy(box=box)
     
-
-
-
-
-
 
 
 
 #put your credentials here
 login(email="", password="")
 
-
-
 print('Which Box?')
 box = input()
 newblooks = []
 
 #and here
-addTokens(addUsername='')
-buy(buyUsername='', box=box)
+addTokens()
+buy(box=box)
 
 
