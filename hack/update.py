@@ -1,6 +1,6 @@
 import requests
 
-print("test")
+
 
 repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/hack/main.py")
 
