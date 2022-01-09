@@ -11,6 +11,6 @@ if file.read() != repo.text:
     lines = repo.text.split("\n")
     file2.writelines(lines)
     file2.close()
-    print("Hack updated. Please reload Visual Studio on all instances. You will have to re-enter your username and password.")
+    print("Hack updated. Please reload your python interpreter. (Visual Studio does this automatically) You will have to re-enter your username and password.")
 file.close()
 
