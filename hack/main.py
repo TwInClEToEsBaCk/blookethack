@@ -147,7 +147,9 @@ def sell(box):
 
 #put your credentials here
 login(email=email, password=password)
-save(round=1, hp=100, tokens=0)
+
+#un-hashtag the below function if you wish to add a tower defense save with any number of tokens.
+#save(round=1, hp=100, tokens=0)
 
 print('Which Box?')
 box = input()
