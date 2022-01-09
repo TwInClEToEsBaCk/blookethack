@@ -33,6 +33,8 @@ if file.read()[:7] != repo.text[:7]:
     print("Update available. Updating now...")
     import update
     time.sleep(3)
+    print("Update complete. The program will now stop for the updates to process.")
+    quit()
 
 
 
