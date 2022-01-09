@@ -41,8 +41,8 @@ def login(email, password):
     try:
         log.raise_for_status()
         verify()
-    except:
-        print("Your username or password might have changed. Update your password and try again.")
+    except Exception as exception:
+        print("Your username or password might have changed. Update your password and try again. Error: " + str(exception))
         quit()
 
 #verify the connection is secure
@@ -56,10 +56,24 @@ def verify():
         username = json.loads(ver.text)["name"]
         print(username)
 
-    except:
-        print("The session could not be verified. Please try again.")
+    except Exception as exception:
+        print("The session could not be verified. Please try again. Error: " + str(exception))
         quit()
     
+
+def TDsave(round, hp, tokens):
+    data = {"id":"61da3d8c265066676c30538a","corrects":{"7":1,"17":1,"18":1},"incorrects":{},"dmg":0,"round": round,"health": hp, "tokens": tokens, "towers":[]}
+    data = json.dumps(data)
+    saved = session.put("https://api.blooket.com/api/defenses/save", data=data)
+
+
+
+
+
+
+
+
+
 
 #add tokens
 def addTokens():
@@ -133,6 +147,7 @@ def sell(box):
 
 #put your credentials here
 login(email="", password="")
+save(round=1, hp=100, tokens=0)
 
 print('Which Box?')
 box = input()
@@ -141,8 +156,3 @@ newblooks = []
 #and here
 addTokens()
 buy(box=box)
-
-
-
-
-
