@@ -1,4 +1,4 @@
-#v2.1.1
+#v1.1.1
 import requests
 
 
@@ -21,7 +21,7 @@ if file.read() != repo.text:
             email = lines1[5]
             password = lines1[6]
         except:
-            print("No email or password. You will have to Sre-enter it.")
+            print("No email or password. You will have to re-enter it.")
         print(email + password)
         file2 = open("main.py", "w")
         lines = repo.text.split("\n")
@@ -32,8 +32,6 @@ if file.read() != repo.text:
         file2.writelines(lines)
         file2.close()
         print("Hack updated. Please reload your python interpreter.")
-        raise NameError("Quit.")
-
     else:
         print("Ok. Make sure to update soon for the most recent bug patches and feature updates.")
     file.close()
