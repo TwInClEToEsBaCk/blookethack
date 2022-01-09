@@ -1,15 +1,29 @@
+#v2.1.0
 import requests
 import time
 import json
 
 email = ""
 password = ""
-repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/addTokens%2C%20buy")
+
+
+repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/hack/update.py")
+file = open("update.py", "r")
+if file.read()[:7] != repo.text[:7]:
+    print("Update available. Updating now...")
+    file2 = open("update.py", "w")
+    lines = repo.text.split("\n")
+    file2.writelines(lines)
+    time.sleep(3)
+    print("Update complete.")
+
+
+repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/hack/main.py")
 
 
 module = __import__(__name__)
 file = open(module.__file__, "r")
-if file.read() != repo.text:
+if file.read()[:7] != repo.text[:7]:
     print("Update available. Updating now...")
     import update
     time.sleep(3)
