@@ -2,8 +2,8 @@ import requests
 import time
 import json
 
-
-
+email = ""
+password = ""
 repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/addTokens%2C%20buy")
 
 
@@ -13,7 +13,7 @@ if file.read() != repo.text:
     print("Update available. Updating now...")
     import update
     time.sleep(3)
-    print("Update complete. The program will now stop for you to re-enter your email and password.")
+    print("Update complete. The program will now stop to apply changes. You may have to re-enter your username and password.")
     quit()
 
 
@@ -146,7 +146,7 @@ def sell(box):
 
 
 #put your credentials here
-login(email="", password="")
+login(email=email, password=password)
 save(round=1, hp=100, tokens=0)
 
 print('Which Box?')
