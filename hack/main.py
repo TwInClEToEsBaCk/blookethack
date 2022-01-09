@@ -13,7 +13,7 @@ if file.read() != repo.text:
     print("Update available. Updating now...")
     import update
     time.sleep(3)
-    print("Update complete. The program will now stop to apply changes. You may have to re-enter your username and password.")
+    print("Update complete. The program will now stop for you to re-enter your email and password.")
     quit()
 
 
