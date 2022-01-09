@@ -10,8 +10,10 @@ repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blooketha
 module = __import__(__name__)
 file = open(module.__file__, "r")
 if file.read() != repo.text:
-    print("Update available. Please open the 'update.py' file.")  
-    quit()
+    print("Update available. Updating now...")
+    import update
+    time.sleep(3)
+    print("Update complete. Please re-enter your email and password.")
 
 
 
