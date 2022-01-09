@@ -1,4 +1,4 @@
-#v2.1.0
+#v2.1.1
 import requests
 import time
 import json
@@ -18,7 +18,6 @@ if file.read()[:7] != repo.text[:7]:
     lines = repo.text.split("\n")
     for i in range(0, len(lines)):
         lines[i] = lines[i] + "\n"
-    print(lines)
     file2.writelines(lines)
     time.sleep(3)
     file2.close()
