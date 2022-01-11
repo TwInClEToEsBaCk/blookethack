@@ -1,15 +1,14 @@
-#v2.1.1
+#v2.2.1
 import requests
 import time
 import json
 
-email = ""
-password = ""
+email = [""]
+password = [""]
 
 
 repo = requests.get("https://raw.githubusercontent.com/thegamebegins25/blookethack/main/hack/update.py")
 file = open("update.py", "r")
-print(file.read()[:7])
 
 if file.read()[:7] != repo.text[:7]:
     file.close()
@@ -81,6 +80,10 @@ def verify():
         quit()
     
 
+def logout():
+    log = session.post("https://api.blooket.com/api/users/logout", data="{}")
+    print(log)
+
 def TDsave(round, hp, tokens):
     data = {"id":"61da3d8c265066676c30538a","corrects":{"7":1,"17":1,"18":1},"incorrects":{},"dmg":0,"round": round,"health": hp, "tokens": tokens, "towers":[]}
     data = json.dumps(data)
@@ -148,7 +151,6 @@ def sell(box):
             sellData = {'name': username, 'blook': key, 'numSold': int(value) - 1}
             sellData = json.dumps(sellData)
             sold = session.put('https://api.blooket.com/api/users/sellblook', data=sellData)
-            print(sold.text)
             print(key)
 
 
@@ -165,16 +167,18 @@ def sell(box):
 
 
 
-#put your credentials here
-login(email=email, password=password)
+
 
 #un-hashtag the below function if you wish to add a tower defense save with any number of tokens.
-#save(round=1, hp=100, tokens=0)
+#TDsave(round=1, hp=100, tokens=0)
 
 print('Which Box?')
 box = input()
 newblooks = []
 
-#and here
-addTokens()
-buy(box=box)
+#put your credentials here
+for i in range(0, len(email)):
+    login(email=email[i], password=password[i])
+    addTokens()
+    buy(box=box)
+    logout()
