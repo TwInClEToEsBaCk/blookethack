@@ -1,6 +1,10 @@
 # blookethack
 Hack blooket and get free tokens.
-Add tokens with `addTokens`, and automatically buy boxes then sell duplicate blooks with `buy`. Install requests, then put in your username/password into the slots at the bottom. Then run using Python to get your free blooks!
+Add your email and password to the lists at the top, you can add more (email and password require equal indexes)  to add to multiple accounts at once. Run the program and tell it what box to open, and it will do it's magic.
+
+See `examples.py`
+
+Then run using Python to get your free blooks!
 
 
 How to install:
