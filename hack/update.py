@@ -1,4 +1,4 @@
-#v2.1.0
+#v2.2.0
 import requests
 
 
@@ -17,6 +17,7 @@ if file.read() != repo.text:
     try:
         email = lines1[5]
         password = lines1[6]
+        box = lines1[7]
     except:
         print("No email or password. You will have to re-enter it.")
     print(email + password)
@@ -25,6 +26,7 @@ if file.read() != repo.text:
     
     lines[5] = email
     lines[6] = password
+    lines[7] = box
     
     file2.writelines(lines)
     file2.close()
