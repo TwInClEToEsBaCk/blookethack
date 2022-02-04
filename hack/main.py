@@ -175,9 +175,6 @@ def sell(box):
 
 #un-hashtag the below function if you wish to add a tower defense save with any number of tokens.
 #TDsave(round=1, hp=100, tokens=0)
-
-print('Which Box?')
-box = input()
 newblooks = []
 
 
