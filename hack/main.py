@@ -1,4 +1,4 @@
-#v2.2.1
+#v2.2.2
 import requests
 import time
 import json
@@ -108,7 +108,11 @@ def addTokens():
     addResponse = session.put('https://api.blooket.com/api/users/add-rewards', data=addData)
 
     
-    print(addResponse.text)
+    try:
+        print(addResponse.text)
+    except:
+        print("Unicode Error. You must be using IDLE, no action is needed.")
+
 
 
 
