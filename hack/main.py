@@ -180,9 +180,15 @@ print('Which Box?')
 box = input()
 newblooks = []
 
+
 #put your credentials here
 for i in range(0, len(email)):
     login(email=email[i], password=password[i])
     addTokens()
-    buy(box=box)
+    try:
+        print(box[i])
+    except:
+        box.append("")
+    if box[i] != "":
+        buy(box[i])
     logout()
