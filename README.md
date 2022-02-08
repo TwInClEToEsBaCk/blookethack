@@ -1,4 +1,9 @@
 # blookethack
+
+***NOTICE*** Blooket has added hashing and encryption to their API so this hack will not work until I get around to fixing it.
+
+
+
 Hack blooket and get free tokens.
 Add your email and password to the lists at the top, you can add more (email and password require equal indexes)  to add to multiple accounts at once. Run the program and tell it what box to open, and it will do it's magic. The `box` list will contain the boxes you wish to open. See the example below.
 
