@@ -1,6 +1,6 @@
 # blookethack
 
-***NOTICE*** Blooket has added hashing and encryption to their API so this hack will not work until I get around to fixing it.
+***NOTICE*** Blooket has added encryption to their API so this hack will not work until I get around to fixing it.
 
 
 
